@@ -33,6 +33,10 @@ const Login = () => {
     if (values.email === "test@abc.com" && values.password === "test123") {
       localStorage.setItem("user", values.email);
       setUser(values.email);
+      Toast.fire({
+        icon: "success",
+        title: "Signed in successfully",
+      });
     } else {
       setError("Invalid credentials. Use test@abc.com / test123");
       setFieldError("password", "Invalid email or password");
@@ -40,11 +44,6 @@ const Login = () => {
 
     setIsLoading(false);
     setSubmitting(false);
-
-    Toast.fire({
-      icon: "success",
-      title: "Signed in successfully",
-    });
   };
 
   const validationSchema = Yup.object({
